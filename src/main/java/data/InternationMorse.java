@@ -2,7 +2,8 @@ package data;
 
 public interface InternationMorse {
 
-    String Encode();
+    String Encode(String word);
 
-    String Decode();
+    String Decode(String word);
+
 }

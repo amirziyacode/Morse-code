@@ -2,20 +2,20 @@ import data.InternationMorse;
 import data.InternationMorseClas;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-
-import java.util.Map;
+import static org.assertj.core.api.Assertions.*;
 
 public class DataShouldTest {
-    InternationMorseClas morseClas;
+    InternationMorse morseClas;
 
     @BeforeEach
     void setUp() {
-        InternationMorse morseInterface = new InternationMorseClas();
-        InternationMorseClas morseClas = new InternationMorseClas();
+        morseClas = new InternationMorseClas();
     }
+
+
     @Test
     void Check_Data(){
-        Map<String, String> morseTable = morseClas.getMorseTable();
-
+        String hello = "Hello world";
+        assertThat(morseClas.Encode(hello)).contains(".... . .-.. .-.. --- .-- --- .-. .-.. -.. ");
     }
 }
