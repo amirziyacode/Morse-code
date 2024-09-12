@@ -3,7 +3,42 @@ package data;
 public class InternationMorseClas implements InternationMorse{
 
 
-    private String Translate(String ch){
+    private String translateDecode(String[] str){
+        StringBuilder sb = new StringBuilder();
+        int index =0;
+        while (str[index] != null){
+            if(str[index].trim().equals(".-")) sb.append("A");
+            if(str[index].trim().equals("-..."))sb.append("B");
+            if(str[index].trim().equals("-.-."))sb.append("C");
+            if(str[index].trim().equals("-..")) sb.append("D");
+            if(str[index].trim().equals(".")) sb.append("E");
+            if(str[index].trim().equals("..-.")) sb.append("F");
+            if(str[index].trim().equals("--.")) sb.append("G");
+            if(str[index].trim().equals("....")) sb.append("H");
+            if(str[index].trim().equals("..")) sb.append("I");
+            if(str[index].trim().equals(".---")) sb.append("J");
+            if(str[index].trim().equals("-.-")) sb.append("K");
+            if(str[index].trim().equals(".-..")) sb.append("L");
+            if(str[index].trim().equals("--")) sb.append("M");
+            if(str[index].trim().equals("-.")) sb.append("N");
+            if(str[index].trim().equals("---")) sb.append("O");
+            if(str[index].trim().equals(".--.")) sb.append("P");
+            if(str[index].trim().equals("--.-")) sb.append("Q");
+            if(str[index].trim().equals(".-.")) sb.append("R");
+            if(str[index].trim().equals("...")) sb.append("S");
+            if(str[index].trim().equals("-")) sb.append("T");
+            if(str[index].trim().equals("..-")) sb.append("U");
+            if(str[index].trim().equals("...-")) sb.append("V");
+            if(str[index].trim().equals(".--")) sb.append("W");
+            if(str[index].trim().equals("-..-")) sb.append("X");
+            if(str[index].trim().equals("-.--")) sb.append("Y");
+            if(str[index].trim().equals("--..")) sb.append("Z");
+            index++;
+        }
+        return sb.toString();
+    }
+
+    private String translateEncode(String ch){
         StringBuilder sb = new StringBuilder();
         for (int i = 0; i < ch.length(); i++){
             if (ch.charAt(i) == 'A')sb.append(".- ");
@@ -38,12 +73,25 @@ public class InternationMorseClas implements InternationMorse{
 
     @Override
     public String Encode(String word) {
-        return Translate(word.toUpperCase());
+        return translateEncode(word.toUpperCase());
     }
 
     @Override
     public String Decode(String word) {
-        return "";
+        String[] ch = new String[word.length()];
+        StringBuilder stringBuilder = new StringBuilder();
+        int index = 0;
+        for (int i =0 ; i < word.trim().length(); i++){
+            if(word.charAt(i) != ' '){
+                stringBuilder.append(word.charAt(i));
+                ch[index] = stringBuilder.toString();
+            }
+            else {
+                stringBuilder.delete(0, stringBuilder.length());
+                index++;
+            }
+        }
+        return translateDecode(ch);
     }
 
 }

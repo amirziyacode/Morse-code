@@ -14,7 +14,7 @@ public class DataShouldTest {
 
 
     @Test
-    void Check_Data_of_char(){
+    void Check_Encode_Data_of_A_B(){
         String a = "A";
         String b = "B";
 
@@ -27,11 +27,33 @@ public class DataShouldTest {
     }
 
     @Test
-    void Check_Data_of_string(){
+    void Check_Encode_Data_of_hello(){
         String hello = "hello";
 
         String encodeHello = morseClas.Encode(hello);
 
         assertThat(encodeHello).isEqualTo(".... . .-.. .-.. --- ");
+    }
+
+    @Test
+    void check_Decode_Data_of_A_B(){
+        String a = ".- ";
+        String b = "-... ";
+
+
+        String decodeA = morseClas.Decode(a);
+        String decodeB = morseClas.Decode(b);
+
+        assertThat(decodeA).isEqualTo("A");
+        assertThat(decodeB).isEqualTo("B");
+    }
+
+    @Test
+    void check_Decode_Data_of_Hello(){
+        String hello = ".... . .-.. .-.. --- ";
+
+        String decodeHello = morseClas.Decode(hello);
+
+        assertThat(decodeHello).isEqualTo("HELLO");
     }
 }
