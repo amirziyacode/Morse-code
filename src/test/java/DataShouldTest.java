@@ -14,8 +14,24 @@ public class DataShouldTest {
 
 
     @Test
-    void Check_Data(){
-        String hello = "Hello world";
-        assertThat(morseClas.Encode(hello)).contains(".... . .-.. .-.. --- .-- --- .-. .-.. -.. ");
+    void Check_Data_of_char(){
+        String a = "A";
+        String b = "B";
+
+        String encodeA = morseClas.Encode(a);
+        String encodeB = morseClas.Encode(b);
+
+
+        assertThat(encodeA).isEqualTo(".- ");
+        assertThat(encodeB).isEqualTo("-... ");
+    }
+
+    @Test
+    void Check_Data_of_string(){
+        String hello = "hello";
+
+        String encodeHello = morseClas.Encode(hello);
+
+        assertThat(encodeHello).isEqualTo(".... . .-.. .-.. --- ");
     }
 }
