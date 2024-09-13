@@ -11,7 +11,9 @@
 
 ## Development Run Test
 
-I use Maven and two packages for Testing(assertJ & Junit) 
+I use Maven and two packages for Testing 
+ - assertJ  
+ - Junit 
 
 ```
 @Test
