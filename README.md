@@ -23,6 +23,9 @@ public interface InternationMorse {
 
 ```
 
+![dev](https://github.com/user-attachments/assets/6bf8929c-b2db-4aec-9c16-c1e8e913aba5)
+
+
 
 ## Development
 
