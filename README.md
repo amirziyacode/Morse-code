@@ -6,7 +6,17 @@
 
   for Decode && Endcode your massage :)
 
+#SetUP!
 
+```JAVA
+public class main{
+
+  public static void main(String[] args) {
+          // code here
+    }
+}
+
+```
 
 
 ## Development
