@@ -2,25 +2,6 @@ package data;
 
 public class InternationMorseClas implements InternationMorse{
 
-
-    private String translateDecode(String[] str){
-        StringBuilder sb = new StringBuilder();
-        int index =0;
-        while (str[index] != null){
-            morseCode_To_Char(str, index, sb);
-            index++;
-        }
-        return sb.toString();
-    }
-
-    private String translateEncode(String ch){
-        StringBuilder sb = new StringBuilder();
-        for (int i = 0; i < ch.length(); i++){
-            char_To_morseCode(ch, i, sb);
-        }
-        return String.valueOf(sb);
-    }
-
     @Override
     public String Encode(String word) {
         return translateEncode(word.toUpperCase());
@@ -42,6 +23,24 @@ public class InternationMorseClas implements InternationMorse{
             }
         }
         return translateDecode(ch);
+    }
+
+    private String translateEncode(String ch){
+        StringBuilder sb = new StringBuilder();
+        for (int i = 0; i < ch.length(); i++){
+            char_To_morseCode(ch, i, sb);
+        }
+        return sb.toString();
+    }
+
+    private String translateDecode(String[] str){
+        StringBuilder sb = new StringBuilder();
+        int index =0;
+        while (str[index] != null){
+            morseCode_To_Char(str, index, sb);
+            index++;
+        }
+        return sb.toString();
     }
 
 
