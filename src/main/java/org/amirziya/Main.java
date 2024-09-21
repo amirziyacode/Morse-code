@@ -14,20 +14,32 @@ public class Main {
 
         InternationMorse internationMorse = new InternationMorseClas();
 
-        Scanner input = new Scanner(System.in);
-        System.out.println("Enter the number of option you want : \n 1-Encode \n 2-Decode");
-        int option = input.nextInt();
+        try(Scanner input = new Scanner(System.in)){
+            System.out.println("Enter the number of option you want : \n 1-Encode \n 2-Decode");
+            if(input.hasNextLine()){
+                int option = input.nextInt();
+                DecodeOrEncode(option, internationMorse);
+            }
+        }catch(RuntimeException e) {
+            throw  new IllegalStateException("Enter valid number !!!!! ");
+        }
 
+    }
+
+    private static void DecodeOrEncode(int option, InternationMorse internationMorse) {
         if(option == 1){
-            Scanner inputEncode = new Scanner(System.in);
-            System.out.println(MASSAGE);
-            String massage = inputEncode.nextLine();
+            String massage = getMassage();
             System.out.println(internationMorse.Encode(massage));
-        }if(option == 2){
-            Scanner inputDecode = new Scanner(System.in);
-            System.out.println(MASSAGE);
-            String decodeMassage = inputDecode.nextLine();
+        }
+        if(option == 2){
+            String decodeMassage = getMassage();
             System.out.println( internationMorse.Decode(decodeMassage));
         }
+    }
+
+    private static String getMassage() {
+        Scanner inputEncode = new Scanner(System.in);
+        System.out.println(MASSAGE);
+        return inputEncode.nextLine();
     }
 }
