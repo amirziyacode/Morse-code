@@ -6,14 +6,19 @@
 
   for Decode && Endcode your massage :)
 
-#SetUP!
+## SetUP!
+
+Go to the scr/java/main/org.amirziya
+
+Run F6 to running App 
 
 ```JAVA
-public class main{
 
-  public static void main(String[] args) {
-          // code here
-    }
+public interface InternationMorse {
+
+    String Encode(String word);
+
+    String Decode(String word);
 }
 
 ```
